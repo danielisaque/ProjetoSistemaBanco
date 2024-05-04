@@ -1,30 +1,67 @@
 package projetosistemabancario;
 
+import java.lang.reflect.GenericDeclaration;
 import java.util.Objects;
 
 public class Conta {
-    private String tipoConta;
-    private int numeroConta;
+    private String cpf;
+    private String numeroConta;
+    private String nome;
+    private String endereco;
+    private double saldo;
+    private String chavePix;
 
-    public Conta(String tipoConta, int numeroConta){
-        this.tipoConta = tipoConta;
+    public Conta(String cpf, String numeroConta, String nome, String endereco, double saldo, String chavePix){
+        this.cpf = cpf;
         this.numeroConta = numeroConta;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.saldo = 0.0;
+        this.chavePix = "";
     }
 
-    public String getTipoConta() {
-        return tipoConta;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setTipoConta(String tipoConta) {
-        this.tipoConta = tipoConta;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
-    public int getNumeroConta() {
+    public String getNumeroConta() {
         return numeroConta;
     }
 
-    public void setNumeroConta(int numeroConta) {
+    public void setNumeroConta(String numeroConta) {
         this.numeroConta = numeroConta;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getChavePix() {
+        return this.chavePix;
+    }
+
+    public void setChavePix(String chavePix) {
+        this.chavePix = chavePix;
+    }
+
+    public String gerarExtrato() {
+        return "Extrato da Conta:\nCPF: " + cpf + "\nNúmero da Conta: " + numeroConta + "\nNome: " + nome + "\nEndereço: " + endereco + "\nSaldo: " + saldo;
     }
 
     @Override
@@ -34,22 +71,51 @@ public class Conta {
 
         Conta conta = (Conta) o;
 
-        if (numeroConta != conta.numeroConta) return false;
-        return Objects.equals(tipoConta, conta.tipoConta);
+        if (!Objects.equals(cpf, conta.cpf)) return false;
+        if (!Objects.equals(numeroConta, conta.numeroConta)) return false;
+        if (!Objects.equals(nome, conta.nome)) return false;
+        return Objects.equals(endereco, conta.endereco);
     }
 
     @Override
     public int hashCode() {
-        int result = tipoConta != null ? tipoConta.hashCode() : 0;
-        result = 31 * result + numeroConta;
+        int result = cpf != null ? cpf.hashCode() : 0;
+        result = 31 * result + (numeroConta != null ? numeroConta.hashCode() : 0);
+        result = 31 * result + (nome != null ? nome.hashCode() : 0);
+        result = 31 * result + (endereco != null ? endereco.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "Conta{" +
-                "tipoConta='" + tipoConta + '\'' +
-                ", numeroConta=" + numeroConta +
+                "cpf='" + cpf + '\'' +
+                ", numeroConta='" + numeroConta + '\'' +
+                ", nome='" + nome + '\'' +
+                ", endereco='" + endereco + '\'' +
                 '}';
+    }
+
+    public void depositar(double valor){
+        this.saldo = saldo + valor;
+    }
+
+    public boolean sacar(double valor) {
+        if (valor <= this.saldo) {
+            this.saldo -= valor;
+            return true;
+        } else {
+            return false; // Saldo insuficiente
+        }
+    }
+
+    public boolean transferir(Conta destino, double valor) {
+        if (valor <= this.saldo) {
+            this.saldo -= valor;
+            destino.depositar(valor);
+            return true;
+        } else {
+            return false; // Saldo insuficiente
+        }
     }
 }
