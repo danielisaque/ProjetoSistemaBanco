@@ -1,9 +1,10 @@
 package projetosistemabancario;
 
+import java.io.Serializable;
 import java.lang.reflect.GenericDeclaration;
 import java.util.Objects;
 
-public class Conta {
+public class Conta implements Serializable {
     private String cpf;
     private String numeroConta;
     private String nome;
@@ -11,7 +12,8 @@ public class Conta {
     private double saldo;
     private String chavePix;
 
-    public Conta(String cpf, String numeroConta, String nome, String endereco, double saldo, String chavePix){
+    public Conta(String cpf, String numeroConta, String nome, String endereco,
+                 double saldo, String chavePix){
         this.cpf = cpf;
         this.numeroConta = numeroConta;
         this.nome = nome;

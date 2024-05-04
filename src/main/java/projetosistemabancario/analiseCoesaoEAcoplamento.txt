@@ -1,0 +1,7 @@
+Análise de coesão: Todas as partes do código da classe `SistemaBancarioOP` trabalham juntas para fazer coisas de banco,
+como cadastrar contas, pesquisar elas, depositar ou sacar dinheiro. Cada parte tem
+um trabalho específico e se encaixa bem com as outras.
+
+Análise de Acoplamento: A classe `SistemaBancarioOP` se encaixa facilmente com outras partes do código
+porque segue um conjunto claro de regras chamado `SistemaBancario`. Isso significa que podemos mudar
+como o sistema bancário funciona sem afetar o resto do programa.

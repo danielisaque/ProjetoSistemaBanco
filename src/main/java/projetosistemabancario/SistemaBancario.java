@@ -1,13 +1,17 @@
 package projetosistemabancario;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface SistemaBancario {
-    public void criarConta(String nome, String cpf, String endereco);
-    public Conta pesquisarConta(int numeroConta);
-    public void encerrarConta(int numeroConta);
-    public void deposito(int numeroConta, double valor);
-    public void saque(int numeroConta, double valor);
-    public ArrayList<String> extrato(int numeroConta);
-    public double consultarSaldo(int numeroConta);
+    boolean cadastrarConta(String cpf, String numeroConta, String nome,
+                           String endereco, double saldo, String chavePix);
+    List<Conta> pesquisarConta(String numeroConta);
+    boolean removerConta(String numeroConta);
+    boolean depositar(String numeroConta, double valor);
+    boolean transferir(String numeroContaOrigem, String numeroContaDestino, double valor);
+    boolean sacar(String numeroConta, double valor);
+    boolean pix(String chavePixOrigem, String chavePixDestino, double valor);
+    String extrato(String numeroConta);
+    public boolean verificarAtividadeConta(String numeroConta);
 }
+

@@ -5,22 +5,24 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SistemaBancarioOP {
+public class SistemaBancarioOP implements SistemaBancario {
     private Map<String, Conta> contas;
 
     public SistemaBancarioOP() {
         this.contas = new HashMap<>();
     }
 
+    @Override
     public boolean cadastrarConta(String cpf, String numeroConta, String nome, String endereco, double saldo, String chavePix) {
         if(!this.contas.containsKey(numeroConta)){
-            this.contas.put(numeroConta, (new Conta(cpf, numeroConta, nome, endereco, saldo, chavePix)));
+            this.contas.put(numeroConta, new Conta(cpf, numeroConta, nome, endereco, saldo, chavePix));
             return true;
         } else {
             return false;
         }
     }
 
+    @Override
     public List<Conta> pesquisarConta(String numeroConta){
         List<Conta> contasExistentes = new ArrayList<>();
         for(Conta conta : this.contas.values()) {
@@ -31,11 +33,13 @@ public class SistemaBancarioOP {
         return contasExistentes;
     }
 
+    @Override
     public boolean removerConta(String numeroConta){
         Conta contaRemovida = this.contas.remove(numeroConta);
         return contaRemovida != null;
     }
 
+    @Override
     public boolean depositar(String numeroConta, double valor) {
         Conta conta = this.contas.get(numeroConta);
         if(conta != null){
@@ -46,6 +50,7 @@ public class SistemaBancarioOP {
         }
     }
 
+    @Override
     public boolean transferir(String numeroContaOrigem, String numeroContaDestino, double valor) {
         Conta contaOrigem = this.contas.get(numeroContaOrigem);
         Conta contaDestino = this.contas.get(numeroContaDestino);
@@ -57,6 +62,7 @@ public class SistemaBancarioOP {
         }
     }
 
+    @Override
     public boolean sacar(String numeroConta, double valor) {
         Conta conta = this.contas.get(numeroConta);
         if (conta != null) {
@@ -66,9 +72,8 @@ public class SistemaBancarioOP {
         }
     }
 
+    @Override
     public boolean pix(String chavePixOrigem, String chavePixDestino, double valor) {
-        // Implementação do PIX, pode variar dependendo das regras de negócio específicas
-        // Neste exemplo, assumimos que o PIX é apenas uma transferência entre contas utilizando suas chaves PIX como identificadores
         Conta contaOrigem = null;
         Conta contaDestino = null;
 
@@ -84,16 +89,26 @@ public class SistemaBancarioOP {
         if (contaOrigem != null && contaDestino != null) {
             return contaOrigem.transferir(contaDestino, valor);
         } else {
-            return false; // Alguma das chaves PIX não corresponde a uma conta válida
+            return false;
         }
     }
 
+    @Override
     public String extrato(String numeroConta) {
         Conta conta = this.contas.get(numeroConta);
         if (conta != null) {
             return conta.gerarExtrato();
         } else {
             return "Conta não encontrada";
+        }
+    }
+
+    public boolean verificarAtividadeConta(String numeroConta) {
+        List<Conta> contasEncontradas = pesquisarConta(numeroConta);
+        if (contasEncontradas.isEmpty()) {
+            return false;
+        } else {
+            return true;
         }
     }
 

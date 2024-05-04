@@ -1,5 +1,5 @@
 package projetosistemabancario;
 
 public enum TipoConta {
-    CORRENTE, POUPANCA
+    CORRENTE, POUPANCA, ATIVA, INATIVA
 }
