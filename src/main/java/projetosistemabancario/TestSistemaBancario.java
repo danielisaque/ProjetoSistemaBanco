@@ -10,7 +10,7 @@ public class TestSistemaBancario {
 
     @BeforeEach
     public void setup() {
-        sistema = new SistemaBancarioOP();
+        sistema = new SistemaBancarioImpl();
     }
 
     @Test
