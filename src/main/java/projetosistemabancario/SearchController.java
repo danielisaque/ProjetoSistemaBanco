@@ -4,30 +4,30 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Collection;
-import java.util.List;
 
 public class SearchController implements ActionListener {
-    private SistemaBancario sistema;
+    private SistemaBancarioImpl sistema;
     private JFrame janelaPrincipal;
 
-    public SearchController(SistemaBancario sistema, JFrame janela) {
+    public SearchController(SistemaBancarioImpl sistema, JFrame janela) {
         this.sistema = sistema;
         this.janelaPrincipal = janela;
     }
 
+    @Override
     public void actionPerformed(ActionEvent e) {
-        String contaAProcurar = JOptionPane.showInputDialog(janelaPrincipal,
-                "Digite o cpf da conta que você deseja procurar: ");
-        Collection<Conta> contasEncontradas = sistema.pesquisarConta(contaAProcurar);
-        if (contasEncontradas.size() > 0) {
+        String cpf = JOptionPane.showInputDialog(janelaPrincipal,
+                "Qual o cpf da conta a pesquisar?");
+        Collection<Conta> contas = sistema.pesquisarConta(cpf);
+        if (contas.size()>0){
             JOptionPane.showMessageDialog(janelaPrincipal,
-                    "Conta encontrada: ");
-            for (Conta contas : contasEncontradas) {
-                JOptionPane.showMessageDialog(janelaPrincipal, contas.toString());
+                    "Aniversariantes encontrados:");
+            for (Conta c : sistema){
+                JOptionPane.showMessageDialog(janelaPrincipal, c.toString());
             }
         } else {
             JOptionPane.showMessageDialog(janelaPrincipal,
-                    "Não foi encontrada nenhuma conta com esse cpf.");
+                    "Não foi encontrado nenhum aniversariante nesta data");
         }
     }
 }

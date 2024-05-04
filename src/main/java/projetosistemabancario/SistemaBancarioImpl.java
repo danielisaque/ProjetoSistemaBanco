@@ -7,6 +7,7 @@ import java.util.Map;
 
 public class SistemaBancarioImpl implements SistemaBancario {
     private Map<String, Conta> contas;
+
     public SistemaBancarioImpl() {
         this.contas = new HashMap<>();
     }
@@ -25,7 +26,7 @@ public class SistemaBancarioImpl implements SistemaBancario {
     public List<Conta> pesquisarConta(String numeroConta){
         List<Conta> contasExistentes = new ArrayList<>();
         for(Conta conta : this.contas.values()) {
-            if(conta.getNumeroConta().equals(numeroConta)) {
+            if(conta.getNumeroConta().startsWith(numeroConta)) {
                 contasExistentes.add(conta);
             }
         }
