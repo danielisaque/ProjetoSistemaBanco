@@ -4,25 +4,26 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Collection;
+import java.util.List;
 
 public class SearchController implements ActionListener {
-    private SistemaBancarioImpl sistema;
+    private SistemaBancarioImpl pesquisarConta;
     private JFrame janelaPrincipal;
 
-    public SearchController(SistemaBancarioImpl sistema, JFrame janela) {
-        this.sistema = sistema;
+    public SearchController(SistemaBancarioImpl pesquisarConta, JFrame janela) {
+        this.pesquisarConta = pesquisarConta;
         this.janelaPrincipal = janela;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String cpf = JOptionPane.showInputDialog(janelaPrincipal,
+        String numeroConta = JOptionPane.showInputDialog(janelaPrincipal,
                 "Qual o cpf da conta a pesquisar?");
-        Collection<Conta> contas = sistema.pesquisarConta(cpf);
-        if (contas.size()>0){
+        List<Conta> contasExistentes = pesquisarConta.pesquisarConta(numeroConta);
+        if (contasExistentes.size()>0){
             JOptionPane.showMessageDialog(janelaPrincipal,
                     "Aniversariantes encontrados:");
-            for (Conta c : sistema){
+            for (Conta c : contasExistentes){
                 JOptionPane.showMessageDialog(janelaPrincipal, c.toString());
             }
         } else {

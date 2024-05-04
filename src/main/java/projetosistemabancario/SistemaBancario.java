@@ -6,7 +6,7 @@ import java.util.List;
 public interface SistemaBancario {
     boolean cadastrarConta(String cpf, String numeroConta, String nome,
                            String endereco, double saldo, String chavePix);
-    Collection<Conta> pesquisarConta(String numeroConta);
+    List<Conta> pesquisarConta(String numeroConta);
     boolean removerConta(String numeroConta);
     boolean depositar(String numeroConta, double valor);
     boolean transferir(String numeroContaOrigem, String numeroContaDestino, double valor);
