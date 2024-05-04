@@ -1,3 +1,5 @@
+package projetosistemabancario;
+
 import projetosistemabancario.Conta;
 
 public class GravadorArquivos {

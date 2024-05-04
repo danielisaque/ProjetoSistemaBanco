@@ -1,3 +1,5 @@
+package projetosistemabancario;
+
 import java.io.*;
 
 public class GravadorObjeto {
