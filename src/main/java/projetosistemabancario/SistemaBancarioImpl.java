@@ -103,13 +103,11 @@ public class SistemaBancarioImpl implements SistemaBancario {
         }
     }
 
+    // Método que verifica a situação da conta (ativa ou inativa) com uso de
+    // expressão lambda.
     public boolean verificarAtividadeConta(String numeroConta) {
-        List<Conta> contasEncontradas = pesquisarConta(numeroConta);
-        if (contasEncontradas.isEmpty()) {
-            return false;
-        } else {
-            return true;
-        }
+        return !pesquisarConta(numeroConta).isEmpty();
     }
+
 
 }
