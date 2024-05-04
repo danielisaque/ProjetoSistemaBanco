@@ -1,7 +1,5 @@
 package projetosistemabancario;
 
-import projetosistemabancario.Conta;
-
 public class GravadorArquivos {
 
     public static void main(String [] args){

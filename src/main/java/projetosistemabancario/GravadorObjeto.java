@@ -39,7 +39,7 @@ public class GravadorObjeto {
     // existe, ele vai tentar criar um novo arquivo, e pega uma exceção caso dê errado
     // após isso vou criar um fluxo de saída para o arquivo, no caso, file output que é o canal de comunição,
     // depois objectOutput, que joga o objeto lá dentro da file
-    public static Object recuperarObjeto(  String caminho ){
+    public static Object recuperarObjeto(String caminho){
         // retorna o objeto gravado no arquivo,
         // o caminho também é passado como parametro
         File arquivo = new File(caminho);

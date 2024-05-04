@@ -22,6 +22,10 @@ public class  Conta implements Serializable {
         this.chavePix = "";
     }
 
+    public Conta() {
+        this("","","","",0.0,"");
+    }
+
     public String getCpf() {
         return cpf;
     }

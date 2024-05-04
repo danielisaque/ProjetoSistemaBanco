@@ -7,7 +7,6 @@ import java.util.Map;
 
 public class SistemaBancarioImpl implements SistemaBancario {
     private Map<String, Conta> contas;
-
     public SistemaBancarioImpl() {
         this.contas = new HashMap<>();
     }
