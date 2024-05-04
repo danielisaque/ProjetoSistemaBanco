@@ -9,6 +9,15 @@ public class  Conta implements Serializable {
     private String numeroConta;
     private String nome;
     private String endereco;
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
     private double saldo;
     private String chavePix;
 

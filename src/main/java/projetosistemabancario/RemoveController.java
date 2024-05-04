@@ -15,7 +15,7 @@ public class RemoveController implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         String contaARemover = JOptionPane.showInputDialog(janelaPrincipal,
-                "Digite o cpf da conta que deseja excluir: ");
+                "Digite o número da conta que deseja excluir: ");
         boolean removeu = sistema.removerConta(contaARemover);
         if (removeu) {
             JOptionPane.showMessageDialog(janelaPrincipal,

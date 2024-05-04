@@ -32,7 +32,7 @@ public class SistemaBancarioImpl implements SistemaBancario {
     public Collection<Conta> pesquisarConta(String numeroConta) {
         Collection<Conta> contasExistentes = new ArrayList<>();
         for (Conta c: this.contas.values()){
-            if (c.getNumeroConta()==numeroConta){
+            if (Objects.equals(c.getNumeroConta(), numeroConta)){
                 contasExistentes.add(c);
             }
         }
