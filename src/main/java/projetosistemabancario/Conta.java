@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.lang.reflect.GenericDeclaration;
 import java.util.Objects;
 
-public class Conta implements Serializable {
+public class  Conta implements Serializable {
     private String cpf;
     private String numeroConta;
     private String nome;
