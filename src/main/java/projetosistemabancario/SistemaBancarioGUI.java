@@ -26,7 +26,7 @@ public class SistemaBancarioGUI extends JFrame {
         botaoPesquisar.addActionListener(new SearchController(sistema, this));
         botaoRemover = new JButton("REMOVER CONTA");
         botaoRemover.addActionListener(new RemoveController(sistema, this));
-        getContentPane().setLayout(new GridLayout(5,1));
+        getContentPane().setLayout(new GridLayout(4,1));
         getContentPane().add(linha1);
         getContentPane().add(botaoAdicionar);
         getContentPane().add(botaoPesquisar);

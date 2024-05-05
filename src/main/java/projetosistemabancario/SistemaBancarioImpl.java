@@ -1,5 +1,7 @@
 package projetosistemabancario;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
@@ -11,15 +13,6 @@ public class SistemaBancarioImpl implements SistemaBancario {
         this.contas = new HashMap<>();
     }
 
-    /*
-    public void salvarDados(){
-        try {
-            this.gravador.salvarConta(this.contas);
-        } catch(Exception e){
-            System.err.println(e.getMessage());
-        }
-    }
-    */
     @Override
     public boolean cadastrarConta(String cpf, String numeroConta, String nome, String endereco, double saldo, String chavePix) {
         if (!this.contas.containsKey(numeroConta)) {
@@ -72,6 +65,7 @@ public class SistemaBancarioImpl implements SistemaBancario {
         Conta conta = this.contas.get(numeroConta);
         if(conta != null){
             conta.depositar(valor);
+            System.out.println("Deposito realizado com sucesso!");
             return true;
         } else {
             return false;
@@ -84,6 +78,7 @@ public class SistemaBancarioImpl implements SistemaBancario {
         Conta contaDestino = this.contas.get(numeroContaDestino);
 
         if (contaOrigem != null && contaDestino != null) {
+            System.out.println("Transferência realizada com sucesso!");
             return contaOrigem.transferir(contaDestino, valor);
         } else {
             return false;
@@ -94,6 +89,7 @@ public class SistemaBancarioImpl implements SistemaBancario {
     public boolean sacar(String numeroConta, double valor) {
         Conta conta = this.contas.get(numeroConta);
         if (conta != null) {
+            System.out.println("Saque realizado com sucesso!");
             return conta.sacar(valor);
         } else {
             return false;

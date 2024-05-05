@@ -26,8 +26,8 @@ public class  Conta implements Serializable {
         this.numeroConta = numeroConta;
         this.nome = nome;
         this.endereco = endereco;
-        this.saldo = 0.0;
-        this.chavePix = "";
+        this.saldo = saldo;
+        this.chavePix = chavePix;
     }
 
     public Conta() {

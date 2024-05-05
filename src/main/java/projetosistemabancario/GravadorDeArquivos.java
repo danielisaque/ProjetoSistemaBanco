@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GravadorDeArquivos {
-    public static final String ARQUIVO_CONTAS = "contas.dat";
+    public static final String ARQUIVO_CONTAS = "dados_contas.txt";
 
     public HashMap<String, Conta> recuperarConta() throws IOException {
         ObjectInputStream in = null;
