@@ -2,11 +2,13 @@
 como atividade avaliativa da disciplina de Programação Orientada a Objetos da professora Ayla Dantas.
 
 Este sistema possui as seguintes funcionalidades:
+
 - Cadastrar conta
 - Pesquisar conta
 - Remover conta
 
 E funções extras como:
+
 - Depositar
 - Transferir
 - Sacar
