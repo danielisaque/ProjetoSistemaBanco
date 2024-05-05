@@ -13,4 +13,4 @@ E funções extras como:
 - Pix
 - Extrato
 
-<img src="/assets/imagens/DiagramaSistemaBancarioUML.jpg">
+<img src="./imagens/DiagramaSistemaBancarioUML.jpg">
