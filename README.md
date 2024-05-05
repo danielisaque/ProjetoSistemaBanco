@@ -13,4 +13,4 @@ E funções extras como:
 - Pix
 - Extrato
 
-<img src="./imagens/DiagramaSistemaBancarioUML.jpg">
+![alt text](imagens/DiagramaSistemaBancarioUML.png)
