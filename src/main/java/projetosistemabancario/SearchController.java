@@ -17,11 +17,11 @@ public class SearchController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         String numeroConta = JOptionPane.showInputDialog(janelaPrincipal,
-                "Qual o numero da conta a pesquisar?");
+                "DIGITE O NUMERO DA CONTA QUE DESEJA PESQUISAR: ");
         Collection<Conta> pesquisarConta = sistema.pesquisarConta(numeroConta);
         if (pesquisarConta.size()>0){
             JOptionPane.showMessageDialog(janelaPrincipal,
-                    "Conta econtrada: ");
+                    "CONTA ENCONTRADA: ");
             for (Conta c : pesquisarConta){
                 JOptionPane.showMessageDialog(janelaPrincipal, c.toString());
             }

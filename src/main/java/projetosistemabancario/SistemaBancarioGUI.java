@@ -20,11 +20,11 @@ public class SistemaBancarioGUI extends JFrame {
         setResizable(false);
         getContentPane().setBackground(Color.WHITE);
         linha1 = new JLabel(logoImg, JLabel.CENTER);
-        botaoAdicionar = new JButton("Cadastrar conta");
+        botaoAdicionar = new JButton("CADASTRAR CONTA");
         botaoAdicionar.addActionListener(new AddController(sistema, this));
-        botaoPesquisar = new JButton("Pesquisar conta");
+        botaoPesquisar = new JButton("PESQUISAR CONTA");
         botaoPesquisar.addActionListener(new SearchController(sistema, this));
-        botaoRemover = new JButton("Remover conta");
+        botaoRemover = new JButton("REMOVER CONTA");
         botaoRemover.addActionListener(new RemoveController(sistema, this));
         getContentPane().setLayout(new GridLayout(5,1));
         getContentPane().add(linha1);

@@ -15,17 +15,17 @@ public class AddController implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         String cpf = JOptionPane.showInputDialog(janelaPrincipal,
-                "Qual o cpf da conta? ");
+                "INFORME O CPF DO TITULAR: ");
         String numeroConta = JOptionPane.showInputDialog(janelaPrincipal,
-                "Qual o número da conta?");
+                "DIGITE O NÚMERO DA CONTA: ");
         String nome = JOptionPane.showInputDialog(janelaPrincipal,
-                "Qual o nome do titular? ");
+                "INFORME O NOME DO TITULAR DA CONTA: ");
         String endereco = JOptionPane.showInputDialog(janelaPrincipal,
-                "Qual o endereco do titular? ");
+                "INFORME O ENDEREÇO DO TITULAR: ");
         double saldo = Double.parseDouble(JOptionPane.showInputDialog(janelaPrincipal,
-                "Qual valor deseja depositar inicialmente? "));
+                "QUAL O VALOR QUE DESEJA DEPOSITAR INICIALMENTE: "));
         String chavePix = JOptionPane.showInputDialog(janelaPrincipal,
-                "Qual a chave pix? ");
+                "INFORME A CHAVE PIX: ");
         boolean cadastrou = contas.cadastrarConta(cpf, numeroConta, nome, endereco, saldo, chavePix);
         if (cadastrou){
             JOptionPane.showMessageDialog(janelaPrincipal,

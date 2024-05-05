@@ -15,15 +15,15 @@ public class RemoveController implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         String contaARemover = JOptionPane.showInputDialog(janelaPrincipal,
-                "Digite o número da conta que deseja excluir: ");
+                "DIGITE O NUMERO DA CONTA QUE DESEJA REMOVER: ");
         boolean removeu = sistema.removerConta(contaARemover);
         if (removeu) {
             JOptionPane.showMessageDialog(janelaPrincipal,
-                    "Conta removida com sucesso");
+                    "CONTA REMOVIDA COM SUCESSO!");
         } else {
             JOptionPane.showMessageDialog(janelaPrincipal,
-                    "Conta não foi encontrada. " +
-                            "A operação não realizada");
+                    "A CONTA NÃO FOI ENCONTRADA" +
+                            "A OPERAÇÃO NÃO FOI REALIZADA");
         }
     }
 }
