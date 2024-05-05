@@ -1,1 +1,9 @@
-TODO: escrever o texto de coesao e acoplamento.
+O sistema parece coeso, o código mostra um acoplamento moderado, mas pode ser melhor
+gerenciado com injeção de dependência, especialmente nos métodos relacionados a gravação de dados.
+
+Melhorias: Melhorar o tratamento de exceções, otimizar métodos de
+pesquisa, melhorar os padrões de nomenclatura e aprimorar a eficiência do código
+são algumas áreas que podem ser aprimoradas.
+
+"Bad Smells": Não vimos problemas significativos, mas percebemos um espaço para
+refatoração para tornar o código mais limpo e legível.
