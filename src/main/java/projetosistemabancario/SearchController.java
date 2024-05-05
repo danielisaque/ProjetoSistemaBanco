@@ -21,7 +21,7 @@ public class SearchController implements ActionListener {
         Collection<Conta> pesquisarConta = sistema.pesquisarConta(numeroConta);
         if (pesquisarConta.size()>0){
             JOptionPane.showMessageDialog(janelaPrincipal,
-                    "Conta econtrada:");
+                    "Conta econtrada: ");
             for (Conta c : pesquisarConta){
                 JOptionPane.showMessageDialog(janelaPrincipal, c.toString());
             }

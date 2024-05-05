@@ -1,7 +1,6 @@
 package projetosistemabancario;
 
 import java.io.Serializable;
-import java.lang.reflect.GenericDeclaration;
 import java.util.Objects;
 
 public class  Conta implements Serializable {
@@ -103,12 +102,12 @@ public class  Conta implements Serializable {
 
     @Override
     public String toString() {
-        return "Conta{" +
-                "cpf='" + cpf + '\'' +
-                ", numeroConta='" + numeroConta + '\'' +
-                ", nome='" + nome + '\'' +
-                ", endereco='" + endereco + '\'' +
-                '}';
+        return "Conta [" +
+                "CPF: '" + cpf + '\'' +
+                ", Numero da Conta: '" + numeroConta + '\'' +
+                ", Nome do Titular: '" + nome + '\'' +
+                ", Endereço do Titular: '" + endereco + '\'' +
+                ']';
     }
 
     public void depositar(double valor){

@@ -1,5 +1,6 @@
 package projetosistemabancario;
 
+import java.io.IOException;
 import java.util.*;
 
 public class SistemaBancarioImpl implements SistemaBancario {
@@ -10,6 +11,7 @@ public class SistemaBancarioImpl implements SistemaBancario {
         this.contas = new HashMap<>();
     }
 
+    /*
     public void salvarDados(){
         try {
             this.gravador.salvarConta(this.contas);
@@ -17,22 +19,36 @@ public class SistemaBancarioImpl implements SistemaBancario {
             System.err.println(e.getMessage());
         }
     }
-
+    */
     @Override
     public boolean cadastrarConta(String cpf, String numeroConta, String nome, String endereco, double saldo, String chavePix) {
-        if(!this.contas.containsKey(numeroConta)){
+        if (!this.contas.containsKey(numeroConta)) {
             this.contas.put(numeroConta, new Conta(cpf, numeroConta, nome, endereco, saldo, chavePix));
+            // Salvando os dados das contas após cadastrar uma nova conta
+            salvarDados();
+            System.out.println("Conta cadastrada com sucesso. Número da conta: " + numeroConta);
             return true;
         } else {
             return false;
         }
     }
 
+    private void salvarDados() {
+        GravadorDeArquivos gravador = new GravadorDeArquivos();
+        try {
+            gravador.salvarConta(this.contas);
+        } catch (IOException e) {
+            System.err.println("Erro ao salvar os dados das contas: " + e.getMessage());
+        }
+    }
+
+
     @Override
     public Collection<Conta> pesquisarConta(String numeroConta) {
+        System.out.println("Pesquisando conta com número: " + numeroConta);
         Collection<Conta> contasExistentes = new ArrayList<>();
-        for (Conta c: this.contas.values()){
-            if (Objects.equals(c.getNumeroConta(), numeroConta)){
+        for (Conta c : this.contas.values()) {
+            if (Objects.equals(c.getNumeroConta(), numeroConta)) {
                 contasExistentes.add(c);
             }
         }
@@ -41,10 +57,12 @@ public class SistemaBancarioImpl implements SistemaBancario {
 
     @Override
     public boolean removerConta(String numeroConta) {
-        if (this.contas.containsKey(numeroConta)){
+        if (this.contas.containsKey(numeroConta)) {
             this.contas.remove(numeroConta);
+            System.out.println("Conta removida com sucesso. Número da conta: " + numeroConta);
             return true;
-        } else{
+        } else {
+            System.out.println("Não foi possível remover a conta. Número da conta não encontrado: " + numeroConta);
             return false;
         }
     }
